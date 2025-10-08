@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Proyecto Interior – DOMO-TICUS</title>
+  <meta name="description" content="Interpretación libre del interior. Proyecto arquitectónico visualizado y modelado por DOMO-TICUS. Video + galería de renders." />
+
+  <!-- OG/Twitter (opcional, mejora el preview al compartir) -->
+  <meta property="og:title" content="Proyecto Interior – DOMO-TICUS">
+  <meta property="og:description" content="Interpretación libre del interior. Video y galería de renders.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Interpretación libre del interior</h1>
+    <p>Proyecto arquitectónico visualizado y modelado por <strong>DOMO-TICUS</strong></p>
+  </header>
+
+  <main>
+    <section class="video-section" aria-labelledby="video-titulo">
+      <h2 id="video-titulo">🎥 Video del Proyecto</h2>
+      <div class="video-container">
+        <!-- Reemplaza TU_ID_AQUI por el ID real del video (lo que va después de v= en YouTube) -->
+        <iframe
+          width="560" height="315"
+          src="https://www.youtube.com/embed/TU_ID_AQUI"
+          title="Video del proyecto DOMO-TICUS"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <section class="gallery" aria-labelledby="galeria-titulo">
+      <h2 id="galeria-titulo">📸 Galería de Imágenes</h2>
+
+      <div class="carousel" role="region" aria-label="Carrusel de renders">
+        <button class="prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+
+        <div class="carousel-images">
+          <img src="assets/img1.jpg" alt="Render interior 1" loading="lazy" decoding="async" width="1280" height="720">
+          <img src="assets/img2.jpg" alt="Render interior 2" loading="lazy" decoding="async" width="1280" height="720">
+          <img src="assets/img3.jpg" alt="Render interior 3" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+
+        <button class="next" type="button" aria-label="Imagen siguiente">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 DOMO-TICUS · Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
