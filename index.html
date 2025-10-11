@@ -5,65 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Proyecto Interior – DOMO-TICUS</title>
-  <meta name="description" content="Interpretación libre del interior. Proyecto arquitectónico visualizado y modelado por DOMO-TICUS. Video + galería de renders.">
+  <meta name="description" content="Interpretación libre del interior. Proyecto arquitectónico visualizado y modelado por DOMO-TICUS. Video + galería de renders." />
 
-  <!-- Google Fonts (opcional si no usas @import en CSS) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- OG/Twitter -->
+  <!-- Social -->
   <meta property="og:title" content="Proyecto Interior – DOMO-TICUS">
   <meta property="og:description" content="Interpretación libre del interior. Video y galería de renders.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img1.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <h1>Interpretación libre del interior</h1>
     <p>Proyecto arquitectónico visualizado y modelado por <strong>DOMO-TICUS</strong></p>
   </header>
 
-  <main>
-    <section class="video-section" aria-labelledby="video-titulo">
-      <h2 id="video-titulo">🎥 Video del Proyecto</h2>
-      <div class="video-container">
-        <!-- Reemplaza TU_ID_AQUI por el ID real del video -->
-        <iframe
-          src="https://www.youtube.com/embed/TU_ID_AQUI"
-          title="Video del proyecto DOMO-TICUS"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+  <main class="scene">
+    <!-- Izquierda: Imagen -->
+    <a class="card-img left" href="assets/img1.jpg" target="_blank" rel="noopener">
+      <span>IMAGEN</span>
+    </a>
+
+    <!-- Centro: Teléfono con título y video -->
+    <section class="phone" aria-label="Mockup teléfono">
+      <div class="notch" aria-hidden="true"></div>
+
+      <div class="pill-title" role="heading" aria-level="2">
+        ARQUITECTURA<br>INTELIGENTE
       </div>
-    </section>
 
-    <section class="gallery" aria-labelledby="galeria-titulo">
-      <h2 id="galeria-titulo">📸 Galería de Imágenes</h2>
-
-      <div class="carousel" role="region" aria-label="Carrusel de renders">
-        <button class="prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-
-        <div class="carousel-images">
-          <img src="assets/img1.jpg" alt="Render interior 1" loading="lazy" decoding="async" width="1280" height="720">
-          <img src="assets/img2.jpg" alt="Render interior 2" loading="lazy" decoding="async" width="1280" height="720">
-          <img src="assets/img3.jpg" alt="Render interior 3" loading="lazy" decoding="async" width="1280" height="720">
+      <div class="screen">
+        <div class="video-16x9">
+          <!-- Video YouTube incrustado -->
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/jOt23DstSBQ"
+            title="Casa Tibasosa"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
         </div>
-
-        <button class="next" type="button" aria-label="Imagen siguiente">&#10095;</button>
       </div>
     </section>
+
+    <!-- Derecha: Imagen -->
+    <a class="card-img right" href="assets/img2.jpg" target="_blank" rel="noopener">
+      <span>IMAGEN</span>
+    </a>
+
+    <!-- Bloque de texto -->
+    <aside class="info">
+      <h3>IMAGEN</h3>
+      <p>(CR1, CR2, CR3, CR4, CR5, CR6, CR7)</p>
+      <p><strong>VIDEO:</strong> https://youtu.be/jOt23DstSBQ</p>
+    </aside>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>© 2025 DOMO-TICUS · Todos los derechos reservados</p>
   </footer>
 
   <script src="script.js" defer></script>
 </body>
 </html>
+
+
 
