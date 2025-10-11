@@ -1,4 +1,4 @@
-/* Base */
+/* ===== Base ===== */
 :root{
   --bg:#f4f4f4;
   --text:#333;
@@ -15,7 +15,7 @@ body{
   margin:0;
 }
 
-/* Header / Footer */
+/* ===== Header / Footer ===== */
 .site-header{
   text-align:center;
   padding:40px 16px;
@@ -29,27 +29,15 @@ body{
   margin-top: 28px;
 }
 
-/* Lienzo principal (basado en tu mockup) */
+/* ===== Layout principal ===== */
 .scene{
   width:min(1200px,95%);
-  margin:24px auto;
+  margin:24px auto 8px;
   display:grid;
-  grid-template-columns: 1fr minmax(280px,440px) 1fr 300px;
-  gap:24px;
-  align-items:center;
+  grid-template-columns: minmax(280px,520px) 1fr;
+  gap:28px;
+  align-items:start;
 }
-
-/* Tarjetas “IMAGEN” */
-.card-img{
-  display:flex; align-items:center; justify-content:center;
-  height:260px; border-radius:18px;
-  background: linear-gradient(180deg,#5bb2d6,#1976a3);
-  color:#001018; text-decoration:none; font-weight:700; letter-spacing:.5px;
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-}
-.card-img span{ font-size: clamp(18px,2.8vw,32px); }
-.card-img:hover{ transform: translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,.16); filter:saturate(1.05); }
 
 /* Teléfono */
 .phone{
@@ -77,34 +65,89 @@ body{
   background:#fff; border-radius:12px; padding:14px;
   height:480px; display:flex; align-items:center; justify-content:center;
 }
-
-/* Video responsivo dentro de la “pantalla” */
+/* Video responsivo */
 .video-16x9{
   position:relative; width:100%; height:100%;
   aspect-ratio:16/9; background:#000; border-radius:10px; overflow:hidden;
 }
 .video-16x9 iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-/* Bloque de info */
+/* Texto lateral */
 .info{ align-self:start; color:#111; }
 .info h3{ margin:0 0 6px; }
 .info p{ margin:6px 0; }
 
-/* Responsivo */
-@media (max-width: 1080px){
-  .scene{
-    grid-template-columns: 1fr minmax(280px,440px) 1fr;
-    grid-template-areas:
-      "left phone right"
-      "info info info";
-  }
-  .info{ grid-area: info; }
+/* ===== Carrusel ===== */
+.gallery{
+  width:min(1200px,95%);
+  margin:6px auto 0;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  padding:18px 14px 26px;
 }
-@media (max-width: 760px){
+.gallery h2{
+  text-align:center; margin:6px 0 14px;
+}
+
+.carousel{
+  position:relative;
+  overflow:hidden;
+  border-radius:10px;
+}
+.carousel .track{
+  display:flex;
+  transition: transform .5s ease-in-out;
+  will-change: transform;
+}
+.carousel img{
+  width:100%;
+  height:auto;
+  flex: 0 0 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Botones */
+.nav{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.45);
+  color:#fff;
+  border:none;
+  width:44px; height:44px;
+  border-radius:10px;
+  font-size:26px;
+  line-height:44px;
+  text-align:center;
+  cursor:pointer;
+  z-index:2;
+}
+.nav:hover{ background: rgba(0,0,0,.6); }
+.nav.prev{ left:10px; }
+.nav.next{ right:10px; }
+
+/* Dots */
+.dots{
+  display:flex; justify-content:center; gap:8px;
+  margin-top:12px;
+}
+.dots button{
+  width:10px; height:10px; border-radius:50%;
+  border:0;
+  background:#cfd8dc;
+  cursor:pointer;
+}
+.dots button[aria-selected="true"]{
+  background:#1976d2;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 920px){
   .scene{
     grid-template-columns: 1fr;
-    gap:16px;
   }
-  .card-img{ height:200px; }
-  .screen{ height:56vw; } /* mantiene proporción del mockup en móvil */
+  .screen{ height:56vw; } /* similar a celular en móvil */
 }
+
