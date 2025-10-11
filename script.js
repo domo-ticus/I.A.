@@ -1,28 +1,31 @@
-/* Carrusel básico con teclado y swipe */
-(function () {
-  const track = document.querySelector('.carousel .track');
-  if (!track) return;
+/* Carrusel minimal con autoplay, pausa al hover, teclado y swipe */
+(() => {
+  const wrap = document.querySelector('.carousel');
+  if (!wrap) return;
 
-  const slides = Array.from(track.querySelectorAll('img'));
-  const prev = document.querySelector('.carousel .prev');
-  const next = document.querySelector('.carousel .next');
-  const dotsWrap = document.querySelector('.carousel .dots');
+  const track = wrap.querySelector('.track');
+  const slides = [...wrap.querySelectorAll('img')];
+  const prev = wrap.querySelector('.prev');
+  const next = wrap.querySelector('.next');
+  const dotsWrap = wrap.querySelector('.dots');
 
   let index = 0;
+  let auto = null;
+  const INTERVAL = 5000;
 
   // Crear dots
   slides.forEach((_, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('role', 'tab');
-    b.setAttribute('aria-label', `Ir a la imagen ${i + 1}`);
-    b.addEventListener('click', () => show(i));
-    dotsWrap.appendChild(b);
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Ir a la imagen ${i + 1}`);
+    dot.addEventListener('click', () => show(i));
+    dotsWrap.appendChild(dot);
   });
 
   function updateDots() {
-    [...dotsWrap.children].forEach((b, i) =>
-      b.setAttribute('aria-selected', i === index ? 'true' : 'false')
+    [...dotsWrap.children].forEach((d, i) =>
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false')
     );
   }
 
@@ -34,6 +37,7 @@
     updateDots();
   }
 
+  // Controles
   prev.addEventListener('click', () => show(index - 1));
   next.addEventListener('click', () => show(index + 1));
 
@@ -45,12 +49,11 @@
 
   // Swipe
   let startX = null;
-  const surface = document.querySelector('.carousel');
-  surface.addEventListener('touchstart', (e) => {
+  wrap.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
   }, { passive: true });
 
-  surface.addEventListener('touchend', (e) => {
+  wrap.addEventListener('touchend', (e) => {
     if (startX === null) return;
     const dx = e.changedTouches[0].clientX - startX;
     if (dx > 40) show(index - 1);
@@ -58,6 +61,14 @@
     startX = null;
   }, { passive: true });
 
-  // Inicial
+  // Autoplay
+  function startAuto(){ stopAuto(); auto = setInterval(() => show(index + 1), INTERVAL); }
+  function stopAuto(){ if (auto) clearInterval(auto), auto = null; }
+  wrap.addEventListener('mouseenter', stopAuto);
+  wrap.addEventListener('mouseleave', startAuto);
+
+  // Init
   show(0);
+  startAuto();
 })();
+
