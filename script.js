@@ -1,4 +1,4 @@
-/* Carrusel minimal con autoplay, pausa al hover, teclado y swipe */
+/* Carrusel con autoplay, pausa al hover, teclado y swipe */
 (() => {
   const wrap = document.querySelector('.carousel');
   if (!wrap) return;
@@ -13,7 +13,7 @@
   let auto = null;
   const INTERVAL = 5000;
 
-  // Crear dots
+  // Dots
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.type = 'button';
@@ -37,7 +37,6 @@
     updateDots();
   }
 
-  // Controles
   prev.addEventListener('click', () => show(index - 1));
   next.addEventListener('click', () => show(index + 1));
 
@@ -47,12 +46,9 @@
     if (e.key === 'ArrowRight') show(index + 1);
   });
 
-  // Swipe
+  // Swipe móvil
   let startX = null;
-  wrap.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
+  wrap.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
   wrap.addEventListener('touchend', (e) => {
     if (startX === null) return;
     const dx = e.changedTouches[0].clientX - startX;
@@ -71,4 +67,5 @@
   show(0);
   startAuto();
 })();
+
 
