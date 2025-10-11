@@ -3,20 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Arquitectura Inteligente — DOMO-TICUS</title>
   <meta name="description" content="Proyecto arquitectónico visualizado y modelado por DOMO-TICUS. Video y galería de imágenes." />
-
-  <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Metadatos sociales -->
   <meta property="og:title" content="Arquitectura Inteligente — DOMO-TICUS">
   <meta property="og:description" content="Video y galería de imágenes.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/cr1.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-
   <link rel="icon" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -32,7 +25,7 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="container">
-    <!-- Card del video (estilo glass) -->
+    <!-- Video en “phone card” -->
     <section class="card phone" aria-label="Vista del proyecto en dispositivo">
       <div class="phone__top">
         <span class="pill">ARQUITECTURA · INTERIOR</span>
@@ -51,24 +44,51 @@
       </div>
     </section>
 
-    <!-- Card de info minimal -->
-  <aside class="card info">
-  <h2>Acerca del proyecto</h2>
-  <ul class="meta">
-    <li><span>Imágenes</span> CR1, CR2, CR3, CR4, CR5, CR6, CR7</li>
-    <li><span>Video</span> <a href="https://youtu.be/jOt23DstSBQ" target="_blank" rel="noopener">YouTube</a></li>
-  </ul>
-  <p class="small">Visual de alto contraste, superficies limpias y navegación simple.</p>
-
-  <!-- Esta línea aparece solo en móvil; la lista "CR1, CR2..." se oculta -->
-  <p class="hint">Galería abajo — desliza para ver las imágenes.</p>
-</aside>
-
+    <!-- Info sin numeración CR1, CR2… -->
+    <aside class="card info">
+      <h2>Acerca del proyecto</h2>
+      <ul class="meta">
+        <li><span>Imágenes</span> 7 imágenes</li>
+        <li><span>Video</span> <a href="https://youtu.be/jOt23DstSBQ" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+      <p class="small">Visual de alto contraste, superficies limpias y navegación simple.</p>
+      <p class="hint">Galería abajo — desliza para ver las imágenes.</p>
+    </aside>
   </main>
 
   <!-- GALERÍA / CARRUSEL -->
+  <section class="gallery">
+    <div class="gallery__head">
+      <h2>Galería</h2>
+      <p class="muted">Desliza, usa ← / → o los puntos para navegar</p>
+    </div>
 
+    <div class="carousel" role="region" aria-label="Carrusel de imágenes">
+      <button class="cbtn prev" type="button" aria-label="Imagen anterior">‹</button>
 
+      <div class="track" aria-live="polite">
+        <img src="assets/cr1.jpg" alt="Render 1" loading="lazy" decoding="async">
+        <img src="assets/cr2.jpg" alt="Render 2" loading="lazy" decoding="async">
+        <img src="assets/cr3.jpg" alt="Render 3" loading="lazy" decoding="async">
+        <img src="assets/cr4.jpg" alt="Render 4" loading="lazy" decoding="async">
+        <img src="assets/cr5.jpg" alt="Render 5" loading="lazy" decoding="async">
+        <img src="assets/cr6.jpg" alt="Render 6" loading="lazy" decoding="async">
+        <img src="assets/cr7.jpg" alt="Render 7" loading="lazy" decoding="async">
+      </div>
 
+      <button class="cbtn next" type="button" aria-label="Imagen siguiente">›</button>
+
+      <div class="dots" role="tablist" aria-label="Paginación"></div>
+      <div class="edges" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 DOMO-TICUS</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
 
 
